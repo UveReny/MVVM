@@ -8,7 +8,11 @@ import android.view.ViewGroup
 import com.example.mvvm.databinding.FragmentDetailBinding
 
 class DetailFragment : Fragment() {
-    private lateinit var binding: FragmentDetailBinding
+    private var _binding: FragmentDetailBinding? = null
+    private val binding
+        get() = checkNotNull(_binding) {
+            "Cannot access binding because it is null. Is the view visible?"
+        }
     private lateinit var item : Item
 
     companion object {
@@ -26,7 +30,12 @@ class DetailFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        binding = FragmentDetailBinding.inflate(layoutInflater,container,false)
+        _binding = FragmentDetailBinding.inflate(layoutInflater,container,false)
         return binding.root
+    }
+
+    override fun onDestroyView() {
+        super.onDestroyView()
+        _binding = null
     }
 }
