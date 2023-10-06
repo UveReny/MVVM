@@ -1,6 +1,5 @@
 package com.example.mvvm
 
-import androidx.lifecycle.ViewModelProvider
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -30,11 +29,4 @@ class DetailFragment : Fragment() {
         binding = FragmentDetailBinding.inflate(layoutInflater,container,false)
         return binding.root
     }
-
-    override fun onActivityCreated(savedInstanceState: Bundle?) {
-        super.onActivityCreated(savedInstanceState)
-        viewModel = ViewModelProvider(this).get(DetailViewModel::class.java)
-        // TODO: Use the ViewModel
-    }
-
 }
