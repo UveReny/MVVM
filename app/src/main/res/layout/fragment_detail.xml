@@ -15,9 +15,9 @@
     <EditText
         android:id="@+id/item_title"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:importantForAutofill="no"
+        android:layout_height="@dimen/text_height"
         android:hint="@string/title_hint"
+        android:importantForAutofill="no"
         android:inputType="text" />
 
     <TextView
@@ -30,7 +30,7 @@
         android:id="@+id/item_date"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        tools:text="Wed May 11 11:56 EST 2022" />
+        tools:text="Wed Okt 04 11:56 EST 2023" />
 
     <CheckBox
         android:id="@+id/item_solved"

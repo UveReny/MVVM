@@ -5,6 +5,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.widget.doOnTextChanged
 import com.example.mvvm.databinding.FragmentDetailBinding
 
 class DetailFragment : Fragment() {
@@ -14,12 +15,8 @@ class DetailFragment : Fragment() {
             "Cannot access binding because it is null. Is the view visible?"
         }
     private lateinit var item : Item
-
-    companion object {
-        fun newInstance() = DetailFragment()
-    }
-
     private lateinit var viewModel: DetailViewModel
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         item = Item()
@@ -32,6 +29,25 @@ class DetailFragment : Fragment() {
     ): View {
         _binding = FragmentDetailBinding.inflate(layoutInflater,container,false)
         return binding.root
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
+        binding.apply {
+            itemTitle.doOnTextChanged { text, _, _, _ ->
+                item = item.copy(title = text.toString())
+            }
+
+            itemDate.apply {
+                text = item.date.toString()
+                isEnabled = false
+            }
+
+            itemSolved.setOnCheckedChangeListener { _, isChecked ->
+                item = item.copy(isSolved = isChecked)
+            }
+        }
     }
 
     override fun onDestroyView() {
