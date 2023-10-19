@@ -42,7 +42,7 @@ android {
 dependencies {
     val recyclerview_version = "1.3.2"
     val lifecycle_version = "2.6.2"
-    val coroutine_version = "1.6.4"
+    val coroutine_version = "1.7.1"
     val room_version = "2.6.0"
 
     implementation("androidx.core:core-ktx:1.12.0")
