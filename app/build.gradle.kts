@@ -42,6 +42,8 @@ dependencies {
     val recyclerview_version = "1.3.2"
     val lifecycle_version = "2.6.2"
     val coroutine_version = "1.7.1"
+    val retrofit_version = "2.9.0"
+    val okhttp_version = "4.9.3"
     val room_version = "2.6.0"
 
     implementation("androidx.core:core-ktx:1.12.0")
@@ -55,10 +57,12 @@ dependencies {
     implementation("androidx.lifecycle:lifecycle-viewmodel-ktx:$lifecycle_version")
     implementation("androidx.lifecycle:lifecycle-runtime-ktx:$lifecycle_version")
     // Add Coroutines
+    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:$coroutine_version")
     implementation("org.jetbrains.kotlinx:kotlinx-coroutines-android:$coroutine_version")
     // Add Retrofit
-    implementation("com.squareup.retrofit2:retrofit:2.9.0")
-    implementation("com.squareup.okhttp3:okhttp:4.9.3")
+    implementation("com.squareup.retrofit2:retrofit:$retrofit_version")
+    implementation("com.squareup.retrofit2:converter-scalars:$retrofit_version")
+    implementation("com.squareup.okhttp3:$okhttp_version")
 
     testImplementation("junit:junit:4.13.2")
     androidTestImplementation("androidx.test.ext:junit:1.1.5")
