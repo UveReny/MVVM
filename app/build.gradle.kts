@@ -62,7 +62,7 @@ dependencies {
     // Add Retrofit
     implementation("com.squareup.retrofit2:retrofit:$retrofit_version")
     implementation("com.squareup.retrofit2:converter-scalars:$retrofit_version")
-    implementation("com.squareup.okhttp3:$okhttp_version")
+    implementation("com.squareup.okhttp3:okhttp:$okhttp_version")
 
     testImplementation("junit:junit:4.13.2")
     androidTestImplementation("androidx.test.ext:junit:1.1.5")
