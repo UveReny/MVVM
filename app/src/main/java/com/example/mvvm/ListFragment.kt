@@ -44,7 +44,7 @@ class ListFragment : Fragment() {
         val clientApi: ClientApi = retrofit.create<ClientApi>(ClientApi::class.java)
 
         viewLifecycleOwner.lifecycleScope.launch {
-            val response = clientApi.fetchContents()
+            val response = clientApi.fetchResponse()
             Log.d(TAG, "Response received: $response")
         }
     }
