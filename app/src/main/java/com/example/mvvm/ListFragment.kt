@@ -13,7 +13,8 @@ import retrofit2.Retrofit
 import com.example.mvvm.api.ClientApi
 import com.example.mvvm.databinding.FragmentListBinding
 import kotlinx.coroutines.launch
-import retrofit2.converter.scalars.ScalarsConverterFactory
+import retrofit2.converter.moshi.MoshiConverterFactory
+//import retrofit2.converter.scalars.ScalarsConverterFactory
 
 private const val TAG = "ListFragment"
 class ListFragment : Fragment() {
@@ -38,14 +39,18 @@ class ListFragment : Fragment() {
 
         val retrofit: Retrofit = Retrofit.Builder()
             .baseUrl("https://www.omdbapi.com/")
-            .addConverterFactory(ScalarsConverterFactory.create())
+            .addConverterFactory(MoshiConverterFactory.create())
             .build()
 
         val clientApi: ClientApi = retrofit.create<ClientApi>(ClientApi::class.java)
 
         viewLifecycleOwner.lifecycleScope.launch {
-            val response = clientApi.fetchResponse()
-            Log.d(TAG, "Response received: $response")
+            try {
+                val response = clientApi.fetchResponse()
+                Log.d(TAG, "Response received: $response")
+            } catch (ex: Exception) {
+                Log.e(TAG, "Failed to fetch gallery items", ex)
+            }
         }
     }
 
