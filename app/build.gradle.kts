@@ -45,6 +45,7 @@ dependencies {
     val coroutine_version = "1.7.3"
     val retrofit_version = "2.9.0"
     val okhttp_version = "4.12.0"
+    val moshi_version = "1.15.0"
     val room_version = "2.6.1"
 
     implementation("androidx.core:core-ktx:1.12.0")
@@ -60,14 +61,18 @@ dependencies {
     // Add Room&Database
     implementation("androidx.room:room-runtime:$room_version")
     implementation("androidx.room:room-ktx:$room_version")
-    //kapt("androidx.room:room-compiler:$room_version")
+    kapt("androidx.room:room-compiler:$room_version")
     // Add Coroutines
     implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:$coroutine_version")
     implementation("org.jetbrains.kotlinx:kotlinx-coroutines-android:$coroutine_version")
     // Add Retrofit
     implementation("com.squareup.retrofit2:retrofit:$retrofit_version")
-    implementation("com.squareup.retrofit2:converter-scalars:$retrofit_version")
+    //implementation("com.squareup.retrofit2:converter-scalars:$retrofit_version")
+    implementation("com.squareup.retrofit2:converter-moshi:$retrofit_version")
     implementation("com.squareup.okhttp3:okhttp:$okhttp_version")
+    // Add Moshi
+    implementation("com.squareup.moshi:moshi:$moshi_version")
+    kapt("com.squareup.moshi:moshi-kotlin-codegen:$moshi_version")
 
     testImplementation("androidx.room:room-testing:$room_version")
     testImplementation("junit:junit:4.13.2")
