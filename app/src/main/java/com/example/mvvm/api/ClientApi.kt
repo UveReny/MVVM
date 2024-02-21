@@ -10,6 +10,6 @@ interface ClientApi {
     @GET("https://omdbapi.com/?apikey=1dbc7755&s=Egg")
     suspend fun fetchContents(): String
 
-    @GET("https://omdbapi.com/?apikey=1dbc7755&s=Egg")
+    @GET("https://omdbapi.com/?apikey=1dbc7755&s=Harry")
     suspend fun fetchResponse(): SearchResponse
 }
