@@ -1,4 +1,5 @@
 <resources>
     <string name="app_name">MVVM</string>
-    <string name="rv_text">no movies</string>
+    <string name="rv_text">no items</string>
+    <string name="correct_text">Click</string>
 </resources>

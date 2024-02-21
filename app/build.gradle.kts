@@ -73,6 +73,8 @@ dependencies {
     // Add Moshi
     implementation("com.squareup.moshi:moshi:$moshi_version")
     kapt("com.squareup.moshi:moshi-kotlin-codegen:$moshi_version")
+    //Picasso
+    implementation("com.squareup.picasso:picasso:2.71828")
 
     testImplementation("androidx.room:room-testing:$room_version")
     testImplementation("junit:junit:4.13.2")

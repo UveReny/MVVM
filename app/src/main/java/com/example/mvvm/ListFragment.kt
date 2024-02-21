@@ -12,12 +12,14 @@ import retrofit2.Retrofit
 
 import com.example.mvvm.api.ClientApi
 import com.example.mvvm.databinding.FragmentListBinding
+import com.example.mvvm.model.Item
 import kotlinx.coroutines.launch
 import retrofit2.converter.moshi.MoshiConverterFactory
 //import retrofit2.converter.scalars.ScalarsConverterFactory
 
 private const val TAG = "ListFragment"
 class ListFragment : Fragment() {
+    private lateinit var list: List<Item>
     private var _binding: FragmentListBinding? = null
     private val binding
         get() = checkNotNull(_binding) {
@@ -48,6 +50,8 @@ class ListFragment : Fragment() {
             try {
                 val response = clientApi.fetchResponse()
                 Log.d(TAG, "Response received: $response")
+                list = response.items?: emptyList()
+                binding.rvList.adapter = SearchAdapter(list)
             } catch (ex: Exception) {
                 Log.e(TAG, "Failed to fetch gallery items", ex)
             }
