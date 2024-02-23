@@ -15,7 +15,6 @@ import com.example.mvvm.databinding.FragmentListBinding
 import com.example.mvvm.model.Item
 import kotlinx.coroutines.launch
 import retrofit2.converter.moshi.MoshiConverterFactory
-//import retrofit2.converter.scalars.ScalarsConverterFactory
 
 private const val TAG = "ListFragment"
 class ListFragment : Fragment() {
