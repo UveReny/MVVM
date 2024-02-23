@@ -10,6 +10,18 @@ import com.squareup.picasso.Picasso
 class SearchHolder(
   val binding:ItemListBinding
 ) : RecyclerView.ViewHolder(binding.root) {
+
+  fun bind(item: Item){
+    binding.apply {
+      titleTextview.text = item.Title
+      releaseDateTextview.text = item.Year
+      overviewTextview.text = item.Type
+
+      if (item.Poster != "N/A") {
+        Picasso.get().load(item.Poster).into(movieImageview)
+      }
+    }
+  }
 }
 
 class SearchAdapter(
@@ -27,15 +39,17 @@ class SearchAdapter(
   }
 
   override fun onBindViewHolder(holder: SearchHolder, position: Int) {
-    holder.binding.apply {
-      titleTextview.text = list[position].Title
-      releaseDateTextview.text = list[position].Year
-      overviewTextview.text = list[position].Type
+    val item = list[position]
+    holder.bind(item)
+/*    holder.binding.apply {
+      titleTextview.text = item.Title
+      releaseDateTextview.text = item.Year
+      overviewTextview.text = item.Type
 
       if (list[position].Poster != "N/A") {
         Picasso.get().load(list[position].Poster).into(movieImageview)
       }
-    }
+    }*/
   }
 
   override fun getItemCount(): Int {
