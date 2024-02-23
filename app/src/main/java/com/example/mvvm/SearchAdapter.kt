@@ -2,6 +2,7 @@ package com.example.mvvm
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
 import com.example.mvvm.databinding.ItemListBinding
 import com.example.mvvm.model.Item
@@ -20,6 +21,14 @@ class SearchHolder(
       if (item.Poster != "N/A") {
         Picasso.get().load(item.Poster).into(movieImageview)
       }
+    }
+
+    binding.root.setOnClickListener {
+      Toast.makeText(
+        binding.root.context,
+        item.Title,
+        Toast.LENGTH_LONG)
+        .show()
     }
   }
 }
