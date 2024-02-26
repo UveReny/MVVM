@@ -5,17 +5,16 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import kotlinx.coroutines.launch
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.LinearLayoutManager
+import retrofit2.converter.moshi.MoshiConverterFactory
 import retrofit2.Retrofit
 
 import com.example.mvvm.api.ClientApi
 import com.example.mvvm.databinding.FragmentListBinding
 import com.example.mvvm.model.Item
-import kotlinx.coroutines.launch
-import retrofit2.converter.moshi.MoshiConverterFactory
-//import retrofit2.converter.scalars.ScalarsConverterFactory
 
 private const val TAG = "ListFragment"
 class ListFragment : Fragment() {
@@ -44,7 +43,7 @@ class ListFragment : Fragment() {
             .addConverterFactory(MoshiConverterFactory.create())
             .build()
 
-        val clientApi: ClientApi = retrofit.create<ClientApi>(ClientApi::class.java)
+        val clientApi: ClientApi = retrofit.create(ClientApi::class.java)
 
         viewLifecycleOwner.lifecycleScope.launch {
             try {
